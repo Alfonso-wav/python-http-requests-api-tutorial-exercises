@@ -1,3 +1,16 @@
 import requests
 
-url = "https://assets.breatheco.de/apis/fake/sample/random-status.php"
+url = "https://assets.breatheco.de/apis/fake/sample/time.php"
+
+response = requests.get(url)
+
+data = response.json()
+keys = []
+values = []
+
+for key, value in data.items():
+    keys.append(key)
+    values.append(value)
+
+output = f"Current time: {values[0]} hrs {values[1]} min and {values[2]} sec"
+print(output)
